@@ -87,7 +87,7 @@ void dacDelta(){
     unsigned int oldVal = dac.getDAC(BANK0, dacCh[ch]);
     
     long newVal = delta + (long) oldVal;
-     
+     //sorry I stole the computer
     if (newVal > 0){
       // update local variable array
       dacPos[ch] = newVal;
@@ -96,7 +96,7 @@ void dacDelta(){
       dac.writeDAC(BANK0, dacCh[ch], newVal);
     } else {
      dacPos[ch] = 0;
-     dac.writeDAC(BANK0, dacCh[ch], 0); 
+     dac.writeDAC(BANK0, dacCh[ch], 0);
     }
   }  else {
     Serial.println("INVALID");
@@ -248,10 +248,11 @@ void setup(){
 
 
 
-  sCmd.addCommand("I", dacIncrease);
-  sCmd.addCommand("D", dacDecrease);
+ // sCmd.addCommand("I", dacIncrease);
+ // sCmd.addCommand("D", dacDecrease);
   sCmd.addCommand("Q", dacRead);
   sCmd.addCommand("S", dacSet);
+  sCmd.addCommand("D", dacDelta);
   sCmd.setDefaultHandler(unrecognizedCmd);
   Serial.println("ready");
   
