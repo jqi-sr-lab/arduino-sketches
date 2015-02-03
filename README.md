@@ -9,3 +9,11 @@ This is the code running on our [current controllers](https://jqi-wiki.physics.u
 ## DACBoardServer
 
 Code running on the 8-channel DAC box on the rack by the red laser.
+
+## DDSBox
+
+Code running on the 3-channel DDS "Frequency Breakout" box.
+
+Ideas for updates/improvements:
+
+* Use rotary encoder instead of potentiometer for setpoint
