@@ -12,7 +12,7 @@ Code running on the 8-channel DAC box on the rack by the red laser.
 
 ## DDSBox
 
-Code running on the 3-channel DDS "Frequency Breakout" box: [https://jqi-wiki.physics.umd.edu/d/documentation/electronics/frequency_breakout_board](https://jqi-wiki.physics.umd.edu/d/documentation/electronics/frequency_breakout_board).
+Code running on the 3-channel DDS ["Frequency Breakout" box](https://jqi-wiki.physics.umd.edu/d/documentation/electronics/frequency_breakout_board).
 
 Ideas for updates/improvements:
 
