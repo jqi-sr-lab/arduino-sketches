@@ -17,3 +17,13 @@ Code running on the 3-channel DDS "Frequency Breakout" box.
 Ideas for updates/improvements:
 
 * Use rotary encoder instead of potentiometer for setpoint
+
+## BeatnoteBox
+
+Code running on the final(ish) beatnote box. Contains:
+
+* 1x PLL clock source (ADF4350)
+* 1x BeatnotePLL (v1.1) + associated DDS reference
+* 1x auxiliary DDS output (eg, for AOM frequency source)
+
+Also implements frontpanel control (LCD + rotary encoder), and SetList integration via SetListArduino (see `JQIamo/SetListArduino-arduino`).
