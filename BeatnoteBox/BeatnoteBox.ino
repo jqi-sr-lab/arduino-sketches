@@ -148,3 +148,61 @@ void writeLCD(char * str, lcd_t mode){
 
 }
 
+
+/* STUFF FOR LCD MENU...
+
+
+//#include "LCDMenuItem.h"
+#include "LCDMenu.h"
+
+	
+
+LCDMenuItem root(NULL, 0);
+
+LCDMenuItem beatnoteMenu(&root, 0);
+
+LCDMenuItem editDDSMenu(&root, 1);
+LCDMenuItem changeDDS(&editDDSMenu, 0);
+
+LCDMenuItem editPLLMenu(&root, 2);
+LCDMenuItem changePMenu(&editPLLMenu, 0);
+LCDMenuItem changeBMenu(&editPLLMenu, 1);
+LCDMenuItem changeAMenu(&editPLLMenu, 2);
+LCDMenuItem changeRMenu(&editPLLMenu, 3);
+
+
+
+void pMenuCallback(dtext_t displayText, menu_action_t action){
+   displayText[0] = "asdf";
+   displayText[1] = "fff";
+}
+LCDMenu menu(&root, write_lcd);
+
+void write_lcd(dtext_t displayText){
+  
+}
+
+
+void setup(){
+changePMenu.addActionCallback(pMenuCallback);
+
+
+	//menu.build();	// adds "back" functions
+
+
+
+}
+
+
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
+
+
+
+
+
+*/
+
