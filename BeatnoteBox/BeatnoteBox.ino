@@ -21,15 +21,17 @@
 
 // For use with a Teensy; may work with other arduino-style boards too.
 
-*/
+
 
 // pin mappings for the Teensy frequency shield
-#include "Teensy_frequencyShield_2ch.h"
+#include "Teensy_FrequencyShield_2ch.h"
 
 #include <SPI.h>
 #include "ADF4350.h"
 #include "ADF4107.h"
 #include "AD9954.h"
+
+#include "LCDMenu.h"
 
 // is this what I want for Teensy?
 #include <EEPROM.h>
@@ -70,9 +72,9 @@ ADF4350 clock(PLL1_LE);
 
 // should refactor/update DDS library; PS1, OSK not used or connected --
 // what should be desired behavior?
-AD9954 auxDDS(DDS1_CS, DDS1_RESET, DDS1_IOUPDATE, DDS1_PSO, 0, 0); 
+AD9954 auxDDS(DDS1_CS, DDS1_RESET, DDS1_IOUPDATE, DDS1_PS0, 0, 0); 
 
-AD9954 refDDS(DDS2_CS, DDS2_RESET, DDS2_IOUPDATE, DDS2_PSO, 0, 0)
+AD9954 refDDS(DDS2_CS, DDS2_RESET, DDS2_IOUPDATE, DDS2_PS0, 0, 0);
 
 // what should be done about MUX input?? 
 // Also refactor PLL libraries to accomodate this.
@@ -88,7 +90,7 @@ int beatnotePLL_P, beatnotePLL_B, beatnotePLL_A, beatnotePLL_R;
 unsigned long auxDDS_ftw, refDDS_ftw;
 double auxDDS_freq, refDDS_freq;
 
-double
+
 
 
 void setup(){
@@ -101,7 +103,7 @@ void setup(){
 	
 	clock.initialize(DDS_REF_FREQ, 10);	// init clock to output 400MHz, from 
 										// onboard 10MHz oscillator
-	
+	/*
 	
 	
 	writeLCD(LCD_BLANKLINE, LINE0);
@@ -118,7 +120,7 @@ void setup(){
 	writeLCD('BN: ', 0);
 	writeLCD(str(
 	
-	
+	*/
 
 }
 
@@ -144,9 +146,9 @@ double FTWToFreq(unsigned long ftw){
 // Writes to LCD
 // lcd_t mode defines behavior of write, eg,
 // LINE0, LINE1, CONT
-void writeLCD(char * str, lcd_t mode){
+//void writeLCD(char * str, lcd_t mode){
 
-}
+//}
 
 
 /* STUFF FOR LCD MENU...
