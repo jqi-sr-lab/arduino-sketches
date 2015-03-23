@@ -55,11 +55,12 @@
  
  */
 //! @{
-#define PLL1_MUX		A0
+
+//#define PLL1_MUX		A0
 #define PLL1_MUX_D		14
 #define PLL1_LE			2
 
-#define PLL2_MUX		A4
+//#define PLL2_MUX		A4
 #define PLL2_MUX_D		18
 #define PLL2_LE			1
 
@@ -78,7 +79,7 @@
 #define ENC_B			21
 #define ENC_SW			23
 
-#define SW1				33
+#define SW1				22
 
 //! @}
 
@@ -87,8 +88,8 @@
  */
 //! @{
 
-#define MOSI			11
+#define TEENSY_MOSI		11
 #define SETLIST_TRIG	12
-#define CLK				13
+#define TEENSY_CLK		13
 
 //! @}
