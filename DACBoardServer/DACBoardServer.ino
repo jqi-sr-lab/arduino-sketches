@@ -270,7 +270,13 @@ void setup(){
  
   // re-zero for unipolar positive output
   dac.assertClear(0);
-  dac.writeGlobalOffset(BANK0, 0x00);
+  
+  // for unipolar, uncomment following line
+  dac.writeGlobalOffset(BANK0, 0x80);
+  // for bipolar, uncomment following line
+  //dac.writeGlobalOffset(BANK0, 0x00);
+  
+  
   dac.writeDAC(BANK0, CHALL, 0x00);
   dac.assertClear(1); 
  
