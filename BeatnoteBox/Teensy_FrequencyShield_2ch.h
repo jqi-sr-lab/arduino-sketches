@@ -87,8 +87,8 @@
  */
 //! @{
 
-#define MOSI			11
+//#define MOSI			11
 #define SETLIST_TRIG	12
-#define CLK				13
+//#define CLK				13
 
 //! @}
