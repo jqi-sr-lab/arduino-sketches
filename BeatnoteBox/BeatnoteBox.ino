@@ -49,15 +49,15 @@ void setup(){
   delay(500);
 
   //DDS1.setFreq(16000000);
-  refDDS.setFreq(58526000);
+  //refDDS.setFreq(58526000);
   //refDDS.setFreq(58534000); //87 beatnote is 1463.15MHz/25= 58.526
-  //DDS1.setFreq(47753000); //88 beatnote is 1241.59MHz/26= 47.753  
+  refDDS.setFreq(47753000); //88 beatnote is 1241.59MHz/26= 47.753  
   delay(500);
   // P, B, A, R
   // beatnote = [(P*B+A)/R]*DDS Ref Freq.
   // Thus, DPLL.initialize(8,3,1,1) gives a 25x multiplier to DDS frequency.
-  beatnotePLL.initialize(8,3,1,1);
-  //DPLL.initialize(8,3,2,1);
+  //beatnotePLL.initialize(8,3,1,1);
+  beatnotePLL.initialize(8,3,2,1);
 
 
   sCmd.addCommand("dds", setDDS);
