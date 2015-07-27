@@ -13,7 +13,6 @@
 //#include <SerialCommand.h>
 //SerialCommand sCmd;
 
-//#define DDS_REF_FREQ 400.0	// DDS reference frequency
 
 
 SetListArduino SetListImage(SETLIST_TRIG);
@@ -44,7 +43,8 @@ void setup() {
 	delay(50);	// give it a sec
 	SPI.beginTransaction(spi_settings);
         delay(100);
-	clock.initialize(400, 10);      // init clock to output 400MHz, from 
+	
+    clock.initialize(400, 10);      // init clock to output 400MHz, from 
 				       // onboard 10MHz oscillator
         delay(10);
        clock.auxEnable(1);
@@ -52,26 +52,22 @@ void setup() {
       clock.setAuxPower(3);
       delay(10);
   
-    DDS0.initialize(400000000);
+  DDS0.initialize(400000000);
   DDS1.initialize(400000000);
   DDS2.initialize(400000000);
   beatnoteDDS.initialize(400000000);
   
  DDS0.setFreq(10000000);
-  DDS1.setFreq(11000000);
-   DDS2.setFreq(12000000);
+ DDS1.setFreq(11000000);
+ DDS2.setFreq(12000000);
  
- 
- //beatnoteDDS.setFreq(4687500);
- beatnoteDDS.setFreq(100000000);
+ // 130MHz beatnote (after 25x PLL multiplier)
+ beatnoteDDS.setFreq(5200000);
  delay(100);
  
  // 25x multiplier
- //(64*8191+56)/16383
- beatnotePLL.initialize(64, 3, 8, 125);
- //beatnotePLL.initialize(64, 8191, 56, 16383);
-// beatnotePLL.initialize(8,3,1,1);
-//sCmd.addCommand("BN", setBN);
+beatnotePLL.initialize(8,3,1,1,0);
+
 
 
   SetListImage.registerDevice(beatnoteDDS, 0);
@@ -81,16 +77,7 @@ void setup() {
 }
 
 void loop() {
-  
    SetListImage.readSerial(); 
-  // put your main code here, to run repeatedly:
-//  Serial.println("heartbeat");
-  //DDS2.initialize(400000000);
-  
- //  DDS2.setFreq(12000000);
-//  clock.initialize(400, 10);
- // delay(1000);
-//sCmd.readSerial();
 }
 
 
@@ -102,7 +89,7 @@ void setBN(AD9954 * dds, int * params){
 
 
 /*
-commands for serialCommand library...
+//commands for serialCommand library...
 
 
 void unrecognizedCmd(const char *command){
@@ -116,12 +103,14 @@ void setBN(){
     arg = sCmd.next();
   if (arg != NULL){
     freq = atoi(arg);
-       beatnoteDDS.setFreq(freq);
-       Serial.print("Ref set to ");
+     Serial.print("BN set to: ");
        Serial.println(freq);
+    freq = freq*40000;
+       beatnoteDDS.setFreq(freq);
+      
        Serial.print("BN: ");
-       double tmp = freq*25.0/1000000.0;
-       Serial.println(tmp);
+     //  double tmp = freq*25.0/1000000.0;
+       Serial.println(freq);
 } else {
     Serial.println("Please enter frequency");
 
