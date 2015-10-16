@@ -55,6 +55,7 @@
  
  */
 //! @{
+
 //#define PLL1_MUX		A0
 #define PLL1_MUX_D		14
 #define PLL1_LE			2
@@ -87,8 +88,8 @@
  */
 //! @{
 
-#define TEENSY_MOSI			11
+#define TEENSY_MOSI		11
 #define SETLIST_TRIG	12
-#define TEENSY_CLK				13
+#define TEENSY_CLK		13
 
 //! @}
