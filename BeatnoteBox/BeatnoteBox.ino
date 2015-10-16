@@ -61,11 +61,7 @@
 
 
 // Some handy LCD defines...
-#define LCD_BLANKLINE '                '
-
-
-
-
+#define LCD_BLANKLINE "                "
 
 
 ADF4350 clock(PLL1_LE);
@@ -73,13 +69,12 @@ ADF4350 clock(PLL1_LE);
 // should refactor/update DDS library; PS1, OSK not used or connected --
 // what should be desired behavior?
 AD9954 auxDDS(DDS1_CS, DDS1_RESET, DDS1_IOUPDATE, DDS1_PS0, 0, 0); 
-
 AD9954 refDDS(DDS2_CS, DDS2_RESET, DDS2_IOUPDATE, DDS2_PS0, 0, 0);
+
 
 // what should be done about MUX input?? 
 // Also refactor PLL libraries to accomodate this.
 ADF4107 beatnotePLL(PLL2_LE);
-
 
 
 // Globals (in memory)
@@ -94,15 +89,15 @@ double auxDDS_freq, refDDS_freq;
 
 
 void setup(){
+  SPI.begin();
+  SPI.setClockDivider(SPI_CLOCK_DIV64);
+  SPI.setDataMode(SPI_MODE3);
+  SPI.setBitOrder(MSBFIRST);
+  delay(100); // give it a sec
 
-	// init SPI bus
-	SPI.begin();
-	SPI.setDataMode(SPI_MODE0);
-	SPI.setClockDivider(4);
-	delay(50);	// give it a sec
 	
 	clock.initialize(DDS_REF_FREQ, 10);	// init clock to output 400MHz, from 
-										// onboard 10MHz oscillator
+						// onboard 10MHz oscillator
 	/*
 	
 	
