@@ -71,8 +71,10 @@ beatnotePLL.initialize(8,3,1,1,0);
 
 
   SetListImage.registerDevice(beatnoteDDS, 0);
+  SetListImage.registerDevice(DDS2, 1);
   
   SetListImage.registerCommand("BN", 0, setBN);
+  SetListImage.registerCommand("F", 1, setFreq); 
 
 }
 
@@ -80,6 +82,10 @@ void loop() {
    SetListImage.readSerial(); 
 }
 
+void setFreq(AD9954 * dds, int * params){
+   int freq = params[0];
+   dds->setFreq(freq);
+}
 
 void setBN(AD9954 * dds, int * params){
    int bn = params[0];
