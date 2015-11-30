@@ -57,7 +57,7 @@ void setup() {
   DDS2.initialize(400000000);
   beatnoteDDS.initialize(400000000);
   
- DDS0.setFreq(10000000);
+ DDS0.setFreq(80000000);
  DDS1.setFreq(11000000);
  DDS2.setFreq(12000000);
  
