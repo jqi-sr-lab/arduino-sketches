@@ -33,7 +33,7 @@
 
 #include "ADF4107.h"
 
-ADF4107 beatnotePLL(PLL2_LE);
+ADF4107 beatnotePLL(PLL1_LE);
 
 // declare LCD
 LCD lcd(LCD_RST, LCD_RS, LCD_CSB);
